@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&family=Pacifico&family=Righteous&display=swap');
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+
+$main-color:#09c;
+$light-color: #f0f3f2;
+$rating-color:#ffc908;
+$font-family: 'Encode Sans Expanded', sans-serif;
+$box-shadow: 2px 4px 4px #09c;
+$main-transition:0.8s;
+
+body{
+  font-family: $font-family;
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background-color: $light-color;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: $main-color;
+  border-radius: 5px;
+}
+.text-main{
+  color: $main-color;
+}
+.text-main-light{
+  color: $light-color;
+}
+.bg-main{
+  background-color: $main-color;
+}
+
+.bg-light{
+  background-color: $light-color;
+}
+
+.rating-color{
+  color: $rating-color;
+}
+
+
+
+
+.font-sm{
+  font-size: 13px;
+}
+
+.main-btn{
+  background-color: $main-color;
+  color: #fff;
+  border-radius: 5px;
+  border: unset;
+  padding: 4px 8px;
+  cursor: pointer;
+
+  &:disabled{
+    color: rgba(0, 153, 204, 0.481);
+    color: #ffffff98;
+    cursor: not-allowed;
+  }
+
+}
+.active-link{
+  background-color: $main-color;
+  color: #fff !important;
+  border-radius: 5px;
+  border: unset;
+  cursor: pointer;
+}
+
+.product{
+  border: 1px solid $main-color;
+  border-radius: 5px;
+
+}
+
+

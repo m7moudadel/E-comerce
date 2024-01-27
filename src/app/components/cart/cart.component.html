@@ -1,0 +1,43 @@
+<section class="w-75 mx-auto rounded p-3 shadow bg-main-light mb-3"
+*ngIf="cartDetails">
+  <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
+          <h2>Shop Cart</h2>
+          <button (click)="clrearCart()" class="btn btn-outline-danger">Clear Cart</button>
+         </div>
+    <p class="text-main">Total Price : {{cartDetails.totalCartPrice}}</p>
+    <div class="row border-bottom py-2" *ngFor="let data of cartDetails.products ">
+      <div class="col-md-1">
+        <img class="w-100" [src]="data.product.imageCover" [alt]="data.product.title" srcset="">
+      </div>
+
+      <div class="col-md-11 d-flex justify-content-between align-items-center">
+      <div>
+        <h3 class="h6">{{data.product.title | cutText:3}}</h3>
+        <p class="text-main">Price:  {{data.price | currency: ' EG'}}</p>
+        <button (click)="removeItem(data.product._id , btnRemove)" #btnRemove class="main-btn btn"><i class="fas fa-trash-can"></i> Remove</button>
+      </div>
+
+      <div>
+        <button #btnUp
+         (click)="changeCount(data.count-1 , data.product._id  , btnUp , btnCl)"  class="btn border-success me-2">
+        -
+        </button>
+        <span>{{data.count}}</span>
+        <button #btnCl
+         (click)="changeCount(data.count+1 ,data.product._id  , btnUp , btnCl )"  class="btn border-success ms-2">
+          +
+        </button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #massseg>
+<p class="text-center">    You Cart Is Empty..........
+</p>
+  </ng-template>
+    <button [routerLink]="['/payment' , cartDetails._id]" class="btn main-btn m-3">
+      PayMent <img src="../../../assets/images/visa-1.svg" alt="">
+    </button>
+</section>

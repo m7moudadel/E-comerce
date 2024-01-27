@@ -1,0 +1,40 @@
+<section  class="bg-light rounded w-75 shadow mx-auto p-3 my-4">
+  <h1>Login Now</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="handelForm()" class="container py-3">
+
+
+
+      <div class="form-items">
+        <label for="email">email</label>
+        <input formControlName="email"  class="form-control mt-2" type="email" placeholder="email" id="email">
+
+        <div *ngIf="loginForm.get('email')?.errors &&loginForm.get('email')?.touched" class="alert alert-danger small">
+          <p  class="mb-0" *ngIf="loginForm.get('email')?.getError('required')">email Is Required</p>
+          <p  class="mb-0" *ngIf="loginForm.get('email')?.getError('email')">email Is Invalid Format</p>
+       </div>
+      </div>
+
+       <div class="form-item">
+        <label for="password">password</label>
+        <input formControlName="password"  class="form-control mt-2" type="password" placeholder="password" id="password">
+
+        <div *ngIf="loginForm.get('password')?.errors &&loginForm.get('password')?.touched" class="alert alert-danger small">
+          <p  class="mb-0" *ngIf="loginForm.get('password')?.getError('required')">password Is Required</p>
+          <p  class="mb-0" *ngIf="loginForm.get('password')?.getError('pattern')">Must Be At 6 Char</p>
+       </div>
+       </div>
+
+
+
+
+
+      <button [disabled]="loginForm.invalid" class="main-btn mt-2">
+        Register <span *ngIf="isLoading"> <i class="fas fa-spin fa-spinner "></i></span>
+      </button>
+    </form>
+
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      <p class="mb-0">{{errorMessage}}</p>
+    </div>
+
+</section>

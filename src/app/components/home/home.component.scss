@@ -1,0 +1,23 @@
+$box-shadow: 2px 4px 4px #09c;
+.img-slider-hover:hover{
+background-color: rgba(0, 153, 204, 0.51);
+}
+
+.product{
+  overflow: hidden;
+
+  &:hover{
+      box-shadow:$box-shadow ;
+    .main-btn{
+      transform: translateY(0);
+
+    }
+  }
+  .main-btn{
+    transform: translateY(150%);
+    transition: .8s;
+  }
+
+}
+
+
